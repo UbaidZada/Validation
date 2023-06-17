@@ -10,7 +10,8 @@ submitbtn.addEventListener('click', (e) => {
 
     if (validateName()&& validateEmail() && validatePassword() && validateConfirmPassword()) {
 
-        alert("Form Submitted Successfully")
+        alert("Form Submitted Successfully");
+        window.location.href = "index.html";
 
     }
 
@@ -89,17 +90,22 @@ function validatePassword() {
 
     }
 
-    if(password.match(/[a-z][A-Z][a-zA-Z0-9]{8,30}$/)){
+    
+    if(!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g)){
 
-passError.innerHTML = "Password should contain 1 uppercase, 1 lowercase, 1 digit"
+passError.innerHTML = "Password should contain Minimum eight characters, at least one letter and one number"
 return false; 
 
     }
+    
+    
+
 
 passError.innerHTML = ""
 passError.previousElementSibling.classList.add('fa-check');
 
 return true;
+
 
 }
 
@@ -107,7 +113,7 @@ return true;
 
 
 function validateConfirmPassword(){
-
+    let password = document.getElementById('password').value;
 let confirmpassword = document.getElementById('confirmpassword').value;
 
 if (confirmpassword.length == 0){
@@ -117,18 +123,36 @@ confirmpassError.previousElementSibling.classList.add('fa-xmark');
 return false;
 }
 
-if (confirmpassword.match(/[a-z][A-Z][a-zA-Z0-9]{8,30}$/)){
+else if(confirmpassword != password){
 
-confirmpassError.innerHTML = " Password is Wrong";
-return false;
-
+    confirmpassError.innerHTML = "Password should be same"
+    confirmpassError.previousElementSibling.classList.add('fa-xmark');
+    return false;
 }
-
-confirmpassError.innerHTML = ""
-confirmpassError.previousElementSibling.classList.add('fa-ckeck')
+confirmpassError.innerHTML = "Passsword Matched"
+confirmpassError.previousElementSibling.classList.add('fa-check');
 
 return true;
-
 }
 
 
+
+// let confirmpassword = document.getElementById('confirmpassword').value;
+// if(confirmpassword.length == 0){
+//     confirmpassError.innerHTML = "Enter Confirm Password"
+//     confirmpassError.previousElementSibling.classList.add('fa-xmark');
+//     return false;  
+// }
+// else if(confirmpassword != password){
+
+//     confirmpassError.innerHTML = "Password should be same"
+//     confirmpassError.previousElementSibling.classList.add('fa-xmark');
+//     return false;
+// }
+// else if(confirmpassword == password){
+
+//     confirmpassError.innerHTML = "Password Matched"
+//     confirmpassError.previousElementSibling.classList.add('fa-check');
+    
+//     return true;
+// }
