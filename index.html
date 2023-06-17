@@ -27,27 +27,33 @@
 
     <p>
 <label for="name">Full Name</label>
-<input type="text" placeholder="Type Name Here" id="name" required pattern="/^[a-zA-Z]*\s{1}[a-zA-Z]*$/"/>
+<input type="text" placeholder="Type Name Here" id="name"/>
 <i class="fa-solid"></i>
 <span id="nameError"></span>
-
 
 </p>
 
 <p>
-    <label for="name">Email</label>
-    <input type="email" placeholder="abc@gmail.com" id="email" required />
+    <label for="email">Email</label>
+    <input type="email" placeholder="abc@gmail.com" id="email"  />
     <i class="fa-solid"></i>
 <span id="emailError"></span>
     </p>
 
     <p>
-        <label for="name">Password</label>
-        <input type="password" placeholder="at least 8 characters" id="password" required min="8" max="30"/>
+        <label for="password">Password</label>
+        <input type="password" placeholder="at least 8 characters" id="password" />
         <i class="fa-solid"></i>
 <span id="passError"></span>
         </p>
 
+
+        <p>
+            <label for="confirmpassword"> Confirm Password</label>
+            <input type="confirmpassword" placeholder="at least 8 characters" id="confirmpassword" />
+            <i class="fa-solid"></i>
+    <span id="confirmpassError"></span>
+            </p>
 
 <p>
 
