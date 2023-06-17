@@ -89,7 +89,7 @@ function validatePassword() {
 
     }
 
-    if(!password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/)){
+    if(password.match(/[a-z][A-Z][a-zA-Z0-9]{8,30}$/)){
 
 passError.innerHTML = "Password should contain 1 uppercase, 1 lowercase, 1 digit"
 return false; 
@@ -117,7 +117,7 @@ confirmpassError.previousElementSibling.classList.add('fa-xmark');
 return false;
 }
 
-if (!confirmpassword.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/)){
+if (confirmpassword.match(/[a-z][A-Z][a-zA-Z0-9]{8,30}$/)){
 
 confirmpassError.innerHTML = " Password is Wrong";
 return false;
